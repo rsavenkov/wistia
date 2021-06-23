@@ -1,0 +1,438 @@
+.scene-wrapper {
+  overflow: hidden;
+
+  @media (min-width: 1024px) {
+    display: flex;
+  }
+}
+
+.scene-section {
+  display: block;
+  transition-property: transform;
+
+  @media (min-width: 1024px) {
+    height: 100vh;
+  }
+}
+
+.welcome-scene {
+  position: relative;
+  background-image: url("/diabeton/servier/images/welcome-left-bg.jpg");
+  background-size: cover;
+  background-position: top left;
+  background-repeat: no-repeat;
+
+  &__sheriff {
+    height: 313px;
+    max-width: 202px;
+    overflow: hidden;
+
+    img {
+      max-width: 100%
+    }
+  }
+
+  &__logo {
+    padding: 70px 0 0;
+    margin: auto;
+    text-align: center;
+
+    svg {
+      max-width: 600px;
+    }
+  }
+
+  &__left-bg {
+    display: none;
+    background-image: url("/diabeton/servier/images/welcome-left-bg.jpg");
+    background-size: cover;
+    background-position: top left;
+    background-repeat: no-repeat;
+
+    flex: 0 0 50vw;
+    height: 100vh;
+  }
+
+  &__right-bg {
+    display: none;
+
+    img {
+      width: 50vw;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  @media(min-width: 1024px) {
+    display: flex;
+    background: none;
+
+    &__sheriff {
+      max-width: none;
+      position: absolute;
+      height: calc(100vh - 100px);
+      left: 20px;
+      bottom: 0;
+
+      img {
+        height: 100%
+      }
+    }
+
+    &__logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 2;
+
+      width: 100vw;
+      height: 100vh;
+
+      padding: 120px 0;
+
+      svg {
+        width: auto;
+        height: 100%;
+        max-height: 800px;
+      }
+
+      div {
+        width: auto;
+        height: 100%;
+        max-height: 800px;
+        cursor: pointer;
+      }
+    }
+
+    &__left-bg {
+      display: block;
+    }
+
+    &__right-bg {
+      display: block;
+    }
+  }
+}
+
+.mission-scene {
+  &__inner {
+    padding: 40px 15px 70px;
+  }
+
+  &__title {
+    font-family: "Old-Town-Normal", "sans-serif";
+    font-size: 150px;
+    line-height: 1;
+
+    margin: 0 0 16px;
+
+    @media (max-width: 1280px) {
+      font-size: 100px;
+      margin: 0 0 10px;
+    }
+
+    @media screen and (max-width: 1024px) {
+      font-size: 80px;
+    }
+    @media screen and (max-width: 370px) {
+      font-size: 70px;
+    }
+  }
+
+  &__description {
+    font-size: 18px;
+    margin: 0 0 30px;
+  }
+
+  &__list {
+    margin: 0 0 30px;
+    display: none;
+
+    &-item {
+      margin-right: 40px;
+
+      &-icon {
+        margin: 0 0 12px;
+        height: 45px;
+
+        svg, div {
+          height: 100%;
+        }
+      }
+
+      &-title {
+        font-size: 16px;
+
+        span {
+          margin: 0 0 11px;
+
+          display: block;
+          font-size: 22px;
+          font-weight: 700;
+          line-height: 1.25;
+        }
+      }
+    }
+  }
+
+  &__text {
+    max-width: 890px;
+    margin: 0 0 22px;
+    font-size: 24px;
+    font-weight: 700;
+  }
+
+  &__footer {
+    font-size: 18px;
+    max-width: 890px;
+  }
+
+  @media(min-width: 1024px) {
+    &__inner {
+      padding: 60px 0 60px 100px;
+    }
+
+    &__list {
+      display: flex;
+    }
+  }
+
+  @media (min-height: 1080px) and (min-width: 1024px) {
+    &__inner {
+      padding: 80px 0 80px 116px;
+    }
+
+    &__title {
+      font-size: 124px;
+      margin: 0 0 24px;
+    }
+
+    &__description {
+      font-size: 24px;
+      margin: 0 0 62px;
+    }
+
+    &__list {
+      margin: 0 0 70px;
+
+      &-item {
+        margin-right: 70px;
+
+        &-icon {
+          margin: 0 0 22px;
+          height: 75px;
+        }
+
+        &-title {
+          font-size: 24px;
+
+          span {
+            font-size: 32px;
+          }
+        }
+      }
+    }
+
+    &__text {
+      margin: 0 0 22px;
+      font-size: 32px;
+    }
+
+    &__footer {
+      font-size: 24px;
+    }
+  }
+
+  .tooltip {
+    &__text {
+      width: 220px;
+    }
+  }
+}
+
+.cases-scene {
+  background-image: url("/diabeton/servier/images/cases-bg.jpg");
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+
+  &__sheriff {
+    position: relative;
+    display: none;
+    margin-right: 170px;
+    height: calc(100vh - 100px);
+
+    img {
+      height: 100%;
+    }
+
+    &--hide {
+      .cases-scene {
+        &__sheriff {
+          &-text {
+            opacity: 0;
+          }
+        }
+      }
+    }
+
+    &-text {
+      position: absolute;
+      z-index: 3;
+      width: 300px;
+      bottom: 75%;
+      left: 62%;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 14px 16px 43px 30px;
+      background-image: url(/diabeton/servier/images/sheriff-text-bg.png);
+      background-size: 100% 100%;
+    }
+  }
+
+  &__sheriff-fake {
+    position: absolute;
+    opacity: 0;
+    height: calc(100vh - 100px);
+    z-index: 3;
+
+    img {
+      height: 100%;
+    }
+  }
+
+  &__inner {
+    padding: 70px 15px;
+
+    @media screen and (max-width: 1023px) {
+      padding: 20px 15px 40px;
+    }
+  }
+
+  &__title {
+    font-size: 68px;
+    line-height: 1;
+    margin: 0 0 40px;
+
+    @media screen and (max-width: 1023px) {
+      margin: 0 0 20px;
+    }
+  }
+
+  &__list {
+    height: 100%;
+
+    &-item {
+      height: 100%;
+      padding: 20px 15px 40px;
+
+      &:not(:first-child) {
+        background-color: #D5C19C;
+      }
+    }
+  }
+
+  @media (min-width: 1024px) {
+    background-position: left 180px center;
+
+    &__title {
+      display: none;
+    }
+
+    &__inner {
+      display: flex;
+      align-items: flex-end;
+      height: 100%;
+      padding: 0;
+    }
+
+    &__sheriff {
+      display: block;
+    }
+
+    &__sheriff-fake {
+      &--show {
+        opacity: 1;
+      }
+    }
+
+    &__list {
+      padding: 20px 80px 80px 0;
+
+      .swiper-slide {
+        width: 234px;
+      }
+    }
+  }
+
+  @media (min-height: 768px) {
+    &__list {
+      &-item {
+        padding: 40px 15px;
+      }
+
+      .swiper-slide {
+        width: 290px;
+      }
+    }
+  }
+
+  @media (min-height: 1080px) {
+    &__list {
+      padding: 64px 64px 116px 64px;
+
+      &-item {
+        padding: 48px 32px;
+      }
+
+      .swiper-slide {
+        width: 410px;
+      }
+    }
+  }
+}
+
+.home-page {
+  &__scene {
+    overflow: hidden;
+  }
+
+  &__usefull-materials {
+    margin: 0 0 60px;
+  }
+
+  &__secret-materials {
+    margin: 0 0 60px;
+  }
+
+  &__patient-materials {
+    margin: 0 0 60px;
+  }
+
+  &__feedback {
+    margin: 0 0 40px;
+  }
+
+
+  @media (min-width: 1600px) {
+    &__usefull-materials {
+      margin: 0 0 100px;
+    }
+
+    &__secret-materials {
+      margin: 0 0 147px;
+    }
+
+    &__patient-materials {
+      margin: 0 0 80px;
+    }
+
+    &__feedback {
+      margin: 0 0 84px;
+    }
+  }
+}
